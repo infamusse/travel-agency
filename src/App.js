@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 import React from 'react';
 import { connect } from 'react-redux';
 import { BrowserRouter, Route } from 'react-router-dom';
@@ -45,9 +46,21 @@ class App extends React.Component {
       <BrowserRouter>
         <MainLayout>
           <AnimatedSwitch
-            atEnter={{ opacity: 0, transition: 0.4, top: 200 }}
-            atLeave={{ opacity: 0, transition: 0.4, top: 200 }}
-            atActive={{ opacity: 1, transition: 0.4, top: 0 }}
+            atEnter={{
+              opacity: 0,
+              transition: 0.4,
+              top: 200,
+            }}
+            atLeave={{
+              opacity: 0,
+              transition: 0.4,
+              top: 200,
+            }}
+            atActive={{
+              opacity: 1,
+              transition: 0.4,
+              top: 0,
+            }}
             className={styles.switchWrapper}
           >
             <Route exact path="/" component={Home} />

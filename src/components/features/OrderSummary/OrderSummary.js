@@ -5,9 +5,8 @@ import { calculateTotal } from '../../../utils/calculateTotal';
 import { formatPrice } from '../../../utils/formatPrice';
 
 const OrderSummary = ({ tripCost, options }) => {
-  const { order } = options.payload;
   const formatedPrice = formatPrice(tripCost);
-  const totalPrice = calculateTotal(formatedPrice, order.options);
+  const totalPrice = calculateTotal(formatedPrice, options);
   //   console.log('orderSummary/formatPrice', order.options);
   return (
     <div>

@@ -42,7 +42,7 @@ export default function reducer(statePart = [], action = {}) {
         ...statePart,
         searchPhrase: action.payload,
       };
-    // TODO - handle other action types
+      // TODO - handle other action types
     case CHANGE_DURATION:
       if (action.payload == 'from') {
         return {
