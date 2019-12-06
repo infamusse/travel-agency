@@ -4,22 +4,21 @@ import { Row, Col } from 'react-flexbox-grid';
 import OrderSummary from '../OrderSummary/OrderSummary';
 import pricing from '../../../data/pricing.json';
 import OrderOption from '../OrderOption/OrderOption';
+import styles from './OrderForm.scss';
 
 const OrderForm = ({ tripCost, options, setOrderOption }) => {
   // console.log('OrderFromTHIS', tripCost);
-  console.log('options', setOrderOption);
   // setOrderOption={setOrderOption}
   return (
     <Row>
-      {pricing.map((options, setOrderOption) => {
+      {pricing.map(option => {
         // const option = options.map(option => option.id);
-        console.log('options in map', setOrderOption);
         return (
-          <Col key={options.id} md={4}>
+          <Col className={styles.component} key={option.id} md={4}>
             <OrderOption
               setOrderOption={setOrderOption}
-              id={options.id}
-              {...options}
+              currentValue={options[option.id]}
+              {...option}
             />
           </Col>
         );
@@ -34,7 +33,7 @@ const OrderForm = ({ tripCost, options, setOrderOption }) => {
 OrderForm.propTypes = {
   tripCost: PropTypes.string,
   options: PropTypes.object,
-  setOrderOption: PropTypes.object,
+  setOrderOption: PropTypes.func,
 };
 
 export default OrderForm;
