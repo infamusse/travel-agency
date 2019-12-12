@@ -24,6 +24,7 @@ const Trip = ({
   description,
   country,
   intro,
+  id,
 }) => {
   if (error) return <NotFound />;
   else
@@ -91,7 +92,7 @@ const Trip = ({
             </Row>
           </Grid>
         </DetailsBox>
-        <OrderForm tripCost={cost} />
+        <OrderForm tripCost={cost} tripId={id} tripName={name} />
       </Section>
     );
 };
