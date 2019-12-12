@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import TripSummary from './TripSummary';
 import { Link } from 'react-router-dom';
 
-describe('Component Hero', () => {
+describe('Component TripSummary', () => {
   //czy jest wywoływany błąd w przypadku braku któregokolwiek z propsów
   it('should throw error without required props', () => {
     expect(() => shallow(<TripSummary />)).toThrow();
