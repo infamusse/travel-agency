@@ -1,40 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import HappyHourAd from './HappyHourAd';
-import Hero from '../../layout/Hero/Hero';
-
-beforeAll(() => {
-  const utilsModule = jest.requireActual('../../../utils/formatTime.js');
-  utilsModule.formatTime = jest.fn(seconds => seconds);
-});
-
-describe('Component HappyHourAd', () => {
-  it('should render without crashing', () => {
-    const component = shallow(<HappyHourAd />);
-    expect(component).toBeTruthy();
-  });
-
-  it('shoud render both component', () => {
-    const component = shallow(<HappyHourAd />);
-    expect(component.exists('.title')).toEqual(true);
-    expect(component.exists('.promoDescription')).toEqual(true);
-  });
-
-  it('shoud render props title', () => {
-    const component = shallow(<HappyHourAd {...mockProps} />);
-    expect(component.find('.title').text()).toEqual('Happy Hour');
-  });
-
-  it('should render HappyHourAd', () => {
-    const expectedTitle = 'Lorem ipsum';
-    const expectedImage = 'image.jpg';
-    const component = shallow(
-      <Hero titleText={expectedTitle} imageSrc={expectedImage} />
-    );
-
-    expect(component.find('HappyHourAd').length).toEqual(1);
-  });
-});
 
 const mockProps = {
   title: 'Happy Hour',
@@ -100,32 +66,4 @@ describe('Component HappyHourAd with mocked Date and delay', () => {
   checkDescriptionAfterTime('11:57:58', 2, '120');
   checkDescriptionAfterTime('11:59:58', 1, '1');
   checkDescriptionAfterTime('13:00:00', 60 * 60, 22 * 60 * 60 + '');
-});
-
-describe('Component HappyHourAd with mocked Date', () => {
-  checkDescriptionAtTime(
-    '12:01:00',
-    'It your time! Take advantage of Happy Hour! All offers 20% off!'
-  );
-  checkDescriptionAtTime(
-    '12:30:00',
-    'It your time! Take advantage of Happy Hour! All offers 20% off!'
-  );
-  checkDescriptionAtTime(
-    '12:59:59',
-    'It your time! Take advantage of Happy Hour! All offers 20% off!'
-  );
-});
-
-describe('Component HappyHourAd with mocked Date and delay', () => {
-  checkDescriptionAfterTime(
-    '12:01:00',
-    2,
-    'It your time! Take advantage of Happy Hour! All offers 20% off!'
-  );
-  checkDescriptionAfterTime(
-    '12:30:00',
-    10,
-    'It your time! Take advantage of Happy Hour! All offers 20% off!'
-  );
 });
