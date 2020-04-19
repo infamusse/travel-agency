@@ -15,11 +15,6 @@
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage --colors"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
   "lint-staged": {
     "src/**/*.js": "eslint"
   },
